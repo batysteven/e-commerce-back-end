@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'category_name',
-      // [sequelize.literal('(SELECT * FROM category')]
     ],
     include: [
       {
@@ -35,7 +34,6 @@ router.get('/:id', (req, res) => {
     attributes: [
       'id',
       'category_name',
-      [sequelize.literal('(SELECT * FROM category')]
     ],
     include: [
       {

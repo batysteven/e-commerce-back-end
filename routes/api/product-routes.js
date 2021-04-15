@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
         attributes: ['id', 'category_name']
       },
       {
-        model: Tag,
+        model: Tag, as: "tagged_products",
         attributes: ['id', 'tag_name']
       }
     ]
@@ -52,7 +52,7 @@ router.get('/:id', (req, res) => {
         attributes: ['id', 'category_name']
       },
       {
-        model: Tag,
+        model: Tag, as: "tagged_products",
         attributes: ['id', 'tag_name']
       }
     ]
@@ -77,7 +77,8 @@ router.post('/', (req, res) => {
     product_name: req.body.product_name,
     price: req.body.price,
     stock: req.body.stock,
-    category_id: req.body.category_id
+    category_id: req.body.category_id,
+    tagIds: req.body.tag_id,
   })
   .then(dbProductData => res.json(dbProductData))
   .catch(err => {
